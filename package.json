@@ -1,0 +1,21 @@
+{
+  "name": "react-zt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zenontrujillo/react-zt.git",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.0.1",
+    "@types/react": "^16.0.34",
+    "@types/react-dom": "^16.0.3",
+    "jest": "^22.0.4",
+    "ts-jest": "^22.0.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  }
+}
