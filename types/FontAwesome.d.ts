@@ -47,7 +47,7 @@ declare module '@fortawesome/fontawesome' {
 		node: HTMLCollection[]
 		html: string[]
 		abstract: object[]
-	} & any
+	}
 
 	export type i2svgParams = {
 		node?: HTMLElement
@@ -70,6 +70,14 @@ declare module '@fortawesome/fontawesome' {
 		attributes?: object
 		style?: object
 		symbol?: boolean | string
+	}
+
+	export type TextParms = {
+		transform?: Transform
+		title?: string
+		classes?: string[]
+		attributes?: object
+		style?: object
 	}
 
 	export type Styles = {
@@ -105,13 +113,27 @@ declare module '@fortawesome/fontawesome' {
 		add: (...iconDefinitions: any[]) => void
 	}
 
+	export interface FaIconFunction {
+		(): FaIcon
+	}
+
+	export interface PushFunction {
+		(func: FaIconFunction): void
+	}
+
+	export interface LayerFunction {
+		(func: (push: PushFunction) => void): FaIcon
+	}
+
 	export interface FontAwesome {
 		dom: Dom
 		parse: Parse
 		library: Library
 		config: Options
 		findIconDefinition: (params: FindIconDefinitionParams | any) => IconDefinition | undefined
-		icon: (iconDefinition: IconDefinition, params?: IconParams | any) => FaIcon | undefined
+		icon: (iconDefinition: IconDefinition, params?: IconParams | any) => FaIcon
+		layer: LayerFunction
+		text: (content: string, params?: TextParms | any) => FaIcon | any
 	}
 	export const fontawesome: FontAwesome
 	export default fontawesome
