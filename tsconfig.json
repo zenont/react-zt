@@ -51,7 +51,7 @@
 	},
 	"exclude": [
 		"node_modules",
-		"test",
+		"demo",
 		"jest",
 		"src/**/*.spec.ts",
 		"src/**/*spec.ts",
