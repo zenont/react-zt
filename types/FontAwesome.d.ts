@@ -7,7 +7,7 @@ declare module '@fortawesome/fontawesome' {
 		fa = 'fa',
 	}
 
-	export interface Options {
+	export interface FontAwesomeOptions {
 		/**
 		 * String used to prefix classes like fa-spin.
 		 * Changing this would allow you to still use Font Awesome 4 with the prefix of fa.
@@ -58,16 +58,13 @@ declare module '@fortawesome/fontawesome' {
 		callback: Function
 	}
 
-	export type Icons = number | string | Array<number | string | any> | any
-
 	export type FindIconDefinitionParams = {
 		prefix?: string
 		iconName?: string
-		icon?: Icons
 	}
 
 	export type IconParams = {
-		transform?: Transform
+		transform?: FontAwesomeTransform
 		compose?: any
 		title?: string
 		classes?: string[]
@@ -77,7 +74,7 @@ declare module '@fortawesome/fontawesome' {
 	}
 
 	export type TextParms = {
-		transform?: Transform
+		transform?: FontAwesomeTransform
 		title?: string
 		classes?: string[]
 		attributes?: object
@@ -91,10 +88,10 @@ declare module '@fortawesome/fontawesome' {
 	export interface IconDefinition {
 		prefix: string
 		iconName: string
-		icon: Icons
+		icon: Array<number | string | Array<any>>
 	}
 
-	export interface Transform {
+	export interface FontAwesomeTransform {
 		size?: number
 		x?: number
 		y?: number
@@ -110,10 +107,10 @@ declare module '@fortawesome/fontawesome' {
 	}
 
 	export interface Parse {
-		transform: (transformString: string) => Transform
+		transform: (transformString: string) => FontAwesomeTransform
 	}
 
-	export interface Library {
+	export interface FontAwesomeLibrary {
 		add: (...iconDefinitions: any[]) => void
 	}
 
@@ -132,8 +129,8 @@ declare module '@fortawesome/fontawesome' {
 	export interface FontAwesome {
 		dom: Dom
 		parse: Parse
-		library: Library
-		config: Options
+		library: FontAwesomeLibrary
+		config: FontAwesomeOptions
 		findIconDefinition: (params: FindIconDefinitionParams | any) => IconDefinition | undefined
 		icon: (iconDefinition: IconDefinition, params?: IconParams | any) => FaIcon
 		layer: LayerFunction

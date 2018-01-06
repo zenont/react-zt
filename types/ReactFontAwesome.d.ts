@@ -1,26 +1,26 @@
-
-
 declare module '@fortawesome/react-fontawesome' {
 	/// <reference types="react" />
+	/// <reference types="@fortawesome/fontawesome" />
 	import { Props, StatelessComponent } from 'react'
+	import { IconDefinition, FontAwesomeTransform } from '@fortawesome/fontawesome'
 
-	export enum FlipDirections {
+	export enum IconDirection {
 		horizontal = 'horizontal',
 		vertical = 'vertical',
 		both = 'both'
 	}
-	export enum PullDirections {
+	export enum IconPull {
 		right = 'right',
 		left = 'left'
 	}
 
-	export enum Rotations {
+	export enum IconRotation {
 		Ninenty = 90,
 		OneEighty = 180,
 		TwoSeventy = 270
 	}
 
-	export enum Sizes {
+	export enum IconSize {
 		lg = 'lg',
 		xs = 'xs',
 		sm = 'sm',
@@ -37,23 +37,23 @@ declare module '@fortawesome/react-fontawesome' {
 	}
 
 	export interface FontAwesomeIconProps extends Props<HTMLDivElement> {
+		readonly icon: IconDefinition | Array<any> | string | undefined
 		readonly border?: boolean
 		readonly className?: string
 		readonly mask?: object | Array<any> | string
 		readonly fixedWidth?: boolean
-		readonly flip?: FlipDirections | string
-		readonly icon?: object | Array<any> | string
+		readonly flip?: IconDirection | string
 		readonly listItem?: boolean
-		readonly pull?: PullDirections | string
+		readonly pull?: IconPull | string
 		readonly pulse?: boolean
 		readonly name?: string
-		readonly rotation?: Rotations | number
-		readonly size?: Sizes | string
+		readonly rotation?: IconRotation | number
+		readonly size?: IconSize | string
 		readonly spin?: boolean
 		readonly symbol?: boolean | string
-		readonly transform?: string | object
+		readonly transform?: string | FontAwesomeTransform | object
 	}
 
-	export const FontAwesomeIcon: StatelessComponent<Props<HTMLDivElement>>;
+	export const FontAwesomeIcon: StatelessComponent<FontAwesomeIconProps>;
 	export default FontAwesomeIcon;
 }

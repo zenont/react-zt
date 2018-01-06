@@ -5,7 +5,7 @@ export class App extends Component {
 	public render() {
 		return (
 			<div>
-				<Spinner />
+				<Spinner spin />
 			</div>
 		)
 	}
