@@ -43,6 +43,12 @@ declare module '@fortawesome/fontawesome' {
 		measurePerformance: boolean
 	}
 
+	export type FaIcon = {
+		node: HTMLCollection[]
+		html: string[]
+		abstract: object[]
+	} & any
+
 	export type i2svgParams = {
 		node?: HTMLElement
 		callback: Function
@@ -56,6 +62,16 @@ declare module '@fortawesome/fontawesome' {
 		icon?: Icons
 	}
 
+	export type IconParams = {
+		transform?: Transform
+		compose?: any
+		title?: string
+		classes?: string[]
+		attributes?: object
+		style?: object
+		symbol?: boolean | string
+	}
+
 	export type Styles = {
 
 	}
@@ -66,6 +82,15 @@ declare module '@fortawesome/fontawesome' {
 		icon: Icons
 	}
 
+	export interface Transform {
+		size?: number
+		x?: number
+		y?: number
+		rotate?: number
+		flipX: boolean
+		flipY: boolean
+	}
+
 	export interface Dom {
 		i2svg: (params?: i2svgParams | any) => void
 		styles: () => Styles
@@ -73,7 +98,7 @@ declare module '@fortawesome/fontawesome' {
 	}
 
 	export interface Parse {
-		transform: (transformString: string) => object
+		transform: (transformString: string) => Transform
 	}
 
 	export interface Library {
@@ -86,11 +111,10 @@ declare module '@fortawesome/fontawesome' {
 		library: Library
 		config: Options
 		findIconDefinition: (params: FindIconDefinitionParams | any) => IconDefinition | undefined
-		icon: (iconDefinition: IconDefinition, params:any) => void
+		icon: (iconDefinition: IconDefinition, params?: IconParams | any) => FaIcon | undefined
 	}
 	export const fontawesome: FontAwesome
 	export default fontawesome
-	// export default FontAwesome
 }
 
 /*
