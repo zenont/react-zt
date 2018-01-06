@@ -1,6 +1,6 @@
 {
 	"name": "react-zt",
-	"version": "1.0.0",
+	"version": "1.0.0-1",
 	"main": "lib/index.js",
 	"repository": "https://github.com/zenontrujillo/react-zt.git",
 	"license": "MIT",
@@ -9,16 +9,16 @@
 		"node": ">=6"
 	},
 	"scripts": {
-		"cleanup": "rimraf lib dist",
+		"cleanup": "rimraf lib dist doc",
 		"transpile": "tsc",
-		"build": "run-s cleanup transpile",
+		"doc": "./node_modules/.bin/typedoc --out ./doc/ ./src/index.ts",
+		"build": "run-s cleanup transpile doc",
 		"prepublishOnly": "run-s build",
 		"test": "./node_modules/.bin/jest --config jest/config.json",
 		"test:coverage": "./node_modules/.bin/jest --config jest/config.json --coverage",
 		"test:opener": "./node_modules/.bin/opener coverage/lcov-report/index.html",
 		"test:report": "run-s test:coverage test:opener",
 		"lint": "tslint -p tsconfig.json --exclude '**/*.d.ts'",
-		"doc": "./node_modules/.bin/typedoc --out ./doc/ ./src/index.ts",
 		"webpack": "webpack --p --config test/webpack.config.ts --env.HOST_PORT=9546 --env.PRODUCTION=true",
 		"bundle": "run-s cleanup webpack",
 		"serve": "webpack-dev-server --config test/webpack.config.ts --env.HOST_PORT=9546",
