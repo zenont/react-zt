@@ -148,15 +148,3 @@ declare module '@fortawesome/fontawesome' {
 	export const fontawesome: FontAwesome
 	export default fontawesome
 }
-
-/*
-/// <reference types="react" />
-import { Component } from 'react';
-export declare class App extends Component {
-    render(): JSX.Element;
-}
-
-/// <reference types="react" />
-import { Props, StatelessComponent } from 'react';
-export declare const Spinner: StatelessComponent<Props<HTMLDivElement>>;
-export default Spinner;*/
