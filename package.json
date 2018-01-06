@@ -1,7 +1,7 @@
 {
 	"name": "react-zt",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "lib/index.js",
 	"repository": "https://github.com/zenontrujillo/react-zt.git",
 	"license": "MIT",
 	"engines": {
