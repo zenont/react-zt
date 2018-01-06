@@ -1,11 +1,12 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React, { Component } from 'react'
 import { Spinner } from '../common'
 
-const element = document.getElementById('app')
-
-render(
-	<div>
-		<Spinner />
-	</div>,
-	element)
+export class App extends Component {
+	public render() {
+		return (
+			<div>
+				<Spinner />
+			</div>
+		)
+	}
+}

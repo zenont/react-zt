@@ -1,10 +1,6 @@
 import { EnvironmentPlugin, HotModuleReplacementPlugin, NamedModulesPlugin, NoEmitOnErrorsPlugin, optimize } from 'webpack' // tslint:disable-line:max-line-length
-import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { join } from 'path'
-import { cssLoaders, getPlugins, jsLoader } from './loaders'
 
 const dist = '../../demo'
 const publicPath = '/'
@@ -15,7 +11,7 @@ export default (env: any) => {
 	return {
 		context: join(__dirname),
 		entry: {
-			app: [
+			demo: [
 				'babel-polyfill',
 				'react-hot-loader/patch',
 				// activate HMR for React
@@ -95,7 +91,7 @@ export default (env: any) => {
 								target: 'es6',
 								module: 'es2015',
 								jsx: 'preserve',
-								sourceMap: false
+								sourceMap: true
 							}
 						}
 					}],
@@ -110,41 +106,10 @@ export default (env: any) => {
 				template: 'index.html',
 				filename: 'index.html',
 				inject: 'body',
-			}),
-			new BundleAnalyzerPlugin({
-				// Can be `server`, `static` or `disabled`.
-				// In `server` mode analyzer will start HTTP server to show bundle report.
-				// In `static` mode single HTML file with bundle report will be generated.
-				// In `disabled` mode you can use this plugin to just generate Webpack Stats JSON file by setting `generateStatsFile` to `true`.
-				analyzerMode: 'server',
-				// Host that will be used in `server` mode to start HTTP server.
-				analyzerHost: '127.0.0.1',
-				// Port that will be used in `server` mode to start HTTP server.
-				analyzerPort,
-				// Path to bundle report file that will be generated in `static` mode.
-				// Relative to bundles output directory.
-				reportFilename: 'report.html',
-				// Module sizes to show in report by default.
-				// Should be one of `stat`, `parsed` or `gzip`.
-				// See "Definitions" section for more information.
-				defaultSizes: 'parsed',
-				// Automatically open report in default browser
-				openAnalyzer: true,
-				// If `true`, Webpack Stats JSON file will be generated in bundles output directory
-				generateStatsFile: false,
-				// Name of Webpack Stats JSON file that will be generated if `generateStatsFile` is `true`.
-				// Relative to bundles output directory.
-				statsFilename: 'stats.json',
-				// Options for `stats.toJson()` method.
-				// For example you can exclude sources of your modules from stats file with `source: false` option.
-				// See more options here: https://github.com/webpack/webpack/blob/webpack-1/lib/Stats.js#L21
-				statsOptions: null,
-				// Log level. Can be 'info', 'warn', 'error' or 'silent'.
-				logLevel: 'info'
 			})
 		],
 		resolve: {
-			extensions: ['.jsx', '.js', '.ts', '.tsx'],
+			extensions: ['.jsx', '.js', '.ts', '.tsx', '.scss'],
 			alias: {
 
 			}
