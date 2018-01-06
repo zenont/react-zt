@@ -1,6 +1,9 @@
 import React, { Props, StatelessComponent } from 'react'
 import fontawesome, { FamilyPrefix } from '@fortawesome/fontawesome'
 
+window.FontAwesomeConfig = {
+    autoReplaceSvg: false,
+  }
 fontawesome.dom.i2svg()
 const lol: string[] = fontawesome.layer((push) => { push(fontawesome.text('Wait…', { transform: { size: 4 } })) }).html
 fontawesome.layer((push) => {

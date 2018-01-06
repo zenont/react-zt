@@ -1,4 +1,8 @@
 declare module '@fortawesome/fontawesome' {
+	export interface FontAwesomeConfig {
+		autoReplaceSvg: boolean
+	}
+
 	export enum FamilyPrefix {
 		fa = 'fa',
 	}
@@ -134,6 +138,12 @@ declare module '@fortawesome/fontawesome' {
 		icon: (iconDefinition: IconDefinition, params?: IconParams | any) => FaIcon
 		layer: LayerFunction
 		text: (content: string, params?: TextParms | any) => FaIcon | any
+	}
+	global {
+		interface Window {
+			FontAwesome: FontAwesome
+			FontAwesomeConfig: FontAwesomeConfig
+		}
 	}
 	export const fontawesome: FontAwesome
 	export default fontawesome
