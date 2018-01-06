@@ -36,6 +36,8 @@ declare module '@fortawesome/react-fontawesome' {
 		x10 = '10x'
 	}
 
+	export type IconSizeType = IconSize | string
+
 	export interface BaseFontAwesomeIconProps {
 		readonly border?: boolean
 		readonly className?: string
@@ -47,7 +49,7 @@ declare module '@fortawesome/react-fontawesome' {
 		readonly pulse?: boolean
 		readonly name?: string
 		readonly rotation?: IconRotation | number
-		readonly size?: IconSize | string
+		readonly size?: IconSizeType
 		readonly spin?: boolean
 		readonly symbol?: boolean | string
 		readonly transform?: string | FontAwesomeTransform | object
