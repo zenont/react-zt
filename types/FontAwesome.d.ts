@@ -3,10 +3,6 @@ declare module '@fortawesome/fontawesome' {
 		autoReplaceSvg: boolean
 	}
 
-	export enum FamilyPrefix {
-		fa = 'fa',
-	}
-
 	export interface FontAwesomeOptions {
 		/**
 		 * String used to prefix classes like fa-spin.

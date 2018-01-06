@@ -1,4 +1,4 @@
-declare module '@fortawesome/fontawesome-free-solid' {
+declare module '@fortawesome/fontawesome-free-brands' {
 	/// <reference types="@fortawesome/fontawesome" />
 	import { IconDefinition } from '@fortawesome/fontawesome'
 

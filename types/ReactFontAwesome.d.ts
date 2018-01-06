@@ -4,23 +4,23 @@ declare module '@fortawesome/react-fontawesome' {
 	import { Props, StatelessComponent } from 'react'
 	import { IconDefinition, FontAwesomeTransform } from '@fortawesome/fontawesome'
 
-	export enum IconDirection {
+	export const enum IconDirection {
 		horizontal = 'horizontal',
 		vertical = 'vertical',
 		both = 'both'
 	}
-	export enum IconPull {
+	export const enum IconPull {
 		right = 'right',
 		left = 'left'
 	}
 
-	export enum IconRotation {
+	export const enum IconRotation {
 		Ninenty = 90,
 		OneEighty = 180,
 		TwoSeventy = 270
 	}
 
-	export enum IconSize {
+	export const enum IconSize {
 		lg = 'lg',
 		xs = 'xs',
 		sm = 'sm',
@@ -36,8 +36,7 @@ declare module '@fortawesome/react-fontawesome' {
 		x10 = '10x'
 	}
 
-	export interface FontAwesomeIconProps extends Props<HTMLDivElement> {
-		readonly icon: IconDefinition | Array<any> | string | undefined
+	export interface BaseFontAwesomeIconProps {
 		readonly border?: boolean
 		readonly className?: string
 		readonly mask?: object | Array<any> | string
@@ -52,6 +51,10 @@ declare module '@fortawesome/react-fontawesome' {
 		readonly spin?: boolean
 		readonly symbol?: boolean | string
 		readonly transform?: string | FontAwesomeTransform | object
+	}
+
+	export interface FontAwesomeIconProps extends Props<HTMLDivElement>, BaseFontAwesomeIconProps {
+		readonly icon: IconDefinition | Array<any> | string | undefined
 	}
 
 	export const FontAwesomeIcon: StatelessComponent<FontAwesomeIconProps>;
