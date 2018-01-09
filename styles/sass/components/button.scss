@@ -28,6 +28,9 @@ $btn-background-color: $color-shuttle-gray !default;
     -webkit-tap-highlight-color: transparent;
     &.default {
         background-color: $btn-background-color;
-    }
+	}
+	.content {
+		display: inline-flex;
+	}
     @include shadow();
 }
