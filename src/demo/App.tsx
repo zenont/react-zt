@@ -1,11 +1,20 @@
 import React, { Component, Props } from 'react'
-import { IconSize, Spinner } from '../common'
+import { Button, IconSize, Spinner } from '../common'
+
+const divStyle = {
+	marginBottom: '15px'
+}
 
 export class App extends Component<Props<{}>> {
 	public render() {
 		return (
 			<div>
-				<Spinner size={IconSize.lg} spin />
+				<div style={divStyle}>
+					<Spinner size={IconSize.lg} spin />
+				</div>
+				<div style={divStyle}>
+					<Button>button</Button>
+				</div>
 			</div>
 		)
 	}
