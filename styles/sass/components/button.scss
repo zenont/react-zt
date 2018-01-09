@@ -26,6 +26,8 @@ $btn-background-color: $color-shuttle-gray !default;
     outline: 0;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    background-color: $btn-background-color;
+    &.default {
+        background-color: $btn-background-color;
+    }
     @include shadow();
 }
