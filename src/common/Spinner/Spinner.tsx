@@ -8,7 +8,8 @@ export interface ISpinnerProps extends Props<HTMLElement> {
 }
 
 export const Spinner: StatelessComponent<ISpinnerProps> = ({ spin, size }) => (
-	<FontAwesomeIcon icon={faSpinner} spin={spin} size={size}  />
+	spin === true ?
+		<FontAwesomeIcon icon={faSpinner} spin={spin} size={size} /> : null
 )
 export { IconSizeType }
 export default Spinner
